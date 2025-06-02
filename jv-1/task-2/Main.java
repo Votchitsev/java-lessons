@@ -1,22 +1,35 @@
 class Car {
-  String brand;
-  Integer year;
+  private String brand;
+  private int year;
 
   void printInfo() {
-    System.out.println("Марка: " + brand + ", Год: " + year);
+    System.out.println(this);
+  }
+
+  public void setYear(int newYear) {
+    year = newYear;
   }
 
   void setBrand (String newBrand) {
     brand = newBrand;
   }
+
+  public Car(String brand, int year) {
+    this.brand = brand;
+    this.year = year;
+  }
+
+  @Override
+  public String toString() {
+    return "Марка: " + brand + ", Год: " + year;
+  }
 }
 
 public class Main {
   public static void main(String[] args) {
-    Car car = new Car();
-    car.brand = "Toyota";
-    car.year = 2022;
+    Car car = new Car("Toyota", 1995);
     car.setBrand("Audi");
+    car.setYear(2005);
     car.printInfo();
   }
 }
